@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c5f-DN-vZ1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cities-->
+        <scene sceneID="gwQ-M3-dRB">
+            <objects>
+                <tableViewController id="fV0-V7-7cC" customClass="CitiesVC" customModule="CityMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1AD-tI-ibQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cityCell" rowHeight="60" id="ykg-X8-n5O" customClass="CityCell" customModule="CityMap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ykg-X8-n5O" id="vjt-er-tUZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minsk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myr-0F-VOu">
+                                            <rect key="frame" x="16" y="11" width="43" height="19"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belarus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvq-DH-LrT">
+                                            <rect key="frame" x="16" y="31" width="51" height="18"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nvq-DH-LrT" firstAttribute="top" secondItem="myr-0F-VOu" secondAttribute="bottom" constant="1" id="8yf-Su-iLP"/>
+                                        <constraint firstItem="nvq-DH-LrT" firstAttribute="leading" secondItem="vjt-er-tUZ" secondAttribute="leadingMargin" id="Uo3-9V-qZg"/>
+                                        <constraint firstItem="myr-0F-VOu" firstAttribute="leading" secondItem="vjt-er-tUZ" secondAttribute="leadingMargin" id="nRh-rb-dUy"/>
+                                        <constraint firstItem="myr-0F-VOu" firstAttribute="top" secondItem="vjt-er-tUZ" secondAttribute="topMargin" id="vrt-p6-atV"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="nvq-DH-LrT" id="JpH-fu-Jb1"/>
+                                    <outlet property="nameLabel" destination="myr-0F-VOu" id="Ul0-px-Ino"/>
+                                    <segue destination="99i-5o-y7g" kind="show" identifier="showDescription" id="mt3-mN-SIO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fV0-V7-7cC" id="ecF-d6-KFc"/>
+                            <outlet property="delegate" destination="fV0-V7-7cC" id="o4R-nC-cFC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cities" largeTitleDisplayMode="always" id="ey1-Ot-iWq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5J-xh-TUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914.4000000000001" y="800.14992503748135"/>
+        </scene>
+        <!--Minsk-->
+        <scene sceneID="vkB-Wt-D2c">
+            <objects>
+                <viewController id="99i-5o-y7g" customClass="DescriptionVC" customModule="CityMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DrK-sX-pY6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Belarus" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aym-qc-WTt">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aym-qc-WTt" firstAttribute="trailing" secondItem="sG1-oX-Idq" secondAttribute="trailing" id="Fl1-Uw-HhE"/>
+                            <constraint firstItem="aym-qc-WTt" firstAttribute="top" secondItem="sG1-oX-Idq" secondAttribute="top" id="PWO-SR-0HY"/>
+                            <constraint firstItem="aym-qc-WTt" firstAttribute="bottom" secondItem="sG1-oX-Idq" secondAttribute="bottom" id="gje-Px-ntn"/>
+                            <constraint firstItem="aym-qc-WTt" firstAttribute="leading" secondItem="sG1-oX-Idq" secondAttribute="leading" id="ssc-UY-6OB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sG1-oX-Idq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Minsk" id="hMG-N3-pCU"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="aym-qc-WTt" id="bEn-7u-bFu"/>
+                        <segue destination="fVo-Qv-jGI" kind="unwind" unwindAction="unwindtoCitiesVCWithSegue:" id="CDm-6W-phG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aw0-Xa-qJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fVo-Qv-jGI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2727" y="798"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r2P-QB-ura">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c5f-DN-vZ1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="wng-6f-XBe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.3068606257" green="0.36149018999999999" blue="0.39735627169999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="37"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fV0-V7-7cC" kind="relationship" relationship="rootViewController" id="MHT-Rs-WBs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usr-Sd-n9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="798"/>
+        </scene>
+    </scenes>
+</document>
