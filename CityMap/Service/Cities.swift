@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class CityService {
+final class Cities {
     
     let cities: [City] = [
         City(name: "Minsk", description: "Belarus"),

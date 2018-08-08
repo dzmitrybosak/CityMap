@@ -17,7 +17,7 @@
 		285F46B321186635006A3169 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F46B221186635006A3169 /* City.swift */; };
 		285F46B721186CBC006A3169 /* CitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F46B621186CBC006A3169 /* CitiesVC.swift */; };
 		285F46BB2118739F006A3169 /* DescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F46BA2118739F006A3169 /* DescriptionVC.swift */; };
-		287DAA5321198D6F005AD878 /* CityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DAA5221198D6F005AD878 /* CityService.swift */; };
+		287DAA5321198D6F005AD878 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DAA5221198D6F005AD878 /* Cities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		285F46B221186635006A3169 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		285F46B621186CBC006A3169 /* CitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesVC.swift; sourceTree = "<group>"; };
 		285F46BA2118739F006A3169 /* DescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionVC.swift; sourceTree = "<group>"; };
-		287DAA5221198D6F005AD878 /* CityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityService.swift; sourceTree = "<group>"; };
+		287DAA5221198D6F005AD878 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 		287DAA54211994DF005AD878 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				287DAA5221198D6F005AD878 /* CityService.swift */,
+				287DAA5221198D6F005AD878 /* Cities.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 				285F46B321186635006A3169 /* City.swift in Sources */,
 				285F46BB2118739F006A3169 /* DescriptionVC.swift in Sources */,
 				285F46AC211850D9006A3169 /* CityCell.swift in Sources */,
-				287DAA5321198D6F005AD878 /* CityService.swift in Sources */,
+				287DAA5321198D6F005AD878 /* Cities.swift in Sources */,
 				285F468921184E07006A3169 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
