@@ -12,7 +12,6 @@ class CitiesVC: UITableViewController {
 
     // MARK: - Properties
     
-    var city = City()
     var cities = Cities().cities
     
     override func viewDidLoad() {
