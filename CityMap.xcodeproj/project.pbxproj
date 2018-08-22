@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C44DD48AD4F7F8FCB72542C /* Pods_CityMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6A21CDD6CF45205DB321E4 /* Pods_CityMap.framework */; };
 		285F468921184E07006A3169 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F468821184E07006A3169 /* AppDelegate.swift */; };
 		285F468E21184E08006A3169 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F468C21184E08006A3169 /* Main.storyboard */; };
 		285F469121184E08006A3169 /* CityMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 285F468F21184E08006A3169 /* CityMap.xcdatamodeld */; };
@@ -17,7 +18,10 @@
 		285F46B321186635006A3169 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F46B221186635006A3169 /* City.swift */; };
 		285F46B721186CBC006A3169 /* CitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F46B621186CBC006A3169 /* CitiesVC.swift */; };
 		285F46BB2118739F006A3169 /* DescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F46BA2118739F006A3169 /* DescriptionVC.swift */; };
-		287DAA5321198D6F005AD878 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DAA5221198D6F005AD878 /* Cities.swift */; };
+		287DAA5321198D6F005AD878 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DAA5221198D6F005AD878 /* NetworkManager.swift */; };
+		4071B24E2126A8DA00527238 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4071B24D2126A8DA00527238 /* ImageManager.swift */; };
+		4071B2502126ADD300527238 /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4071B24F2126ADD300527238 /* NetworkState.swift */; };
+		40E5D715212AA0E900DE8770 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E5D714212AA0E900DE8770 /* Cities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +49,13 @@
 		285F46B221186635006A3169 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		285F46B621186CBC006A3169 /* CitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesVC.swift; sourceTree = "<group>"; };
 		285F46BA2118739F006A3169 /* DescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionVC.swift; sourceTree = "<group>"; };
-		287DAA5221198D6F005AD878 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		287DAA5221198D6F005AD878 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4071B24D2126A8DA00527238 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		4071B24F2126ADD300527238 /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
+		40E5D714212AA0E900DE8770 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		9E6A21CDD6CF45205DB321E4 /* Pods_CityMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CityMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7652596B3EEE69916BF29FC /* Pods-CityMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-CityMap/Pods-CityMap.release.xcconfig"; sourceTree = "<group>"; };
+		F4CFC0C2C92D9C41052BB505 /* Pods-CityMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CityMap/Pods-CityMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C44DD48AD4F7F8FCB72542C /* Pods_CityMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +83,8 @@
 				285F468721184E07006A3169 /* CityMap */,
 				285F469F21184E1D006A3169 /* CityMapTests */,
 				285F468621184E07006A3169 /* Products */,
+				D878D2BF95F9F4A6A1B855A3 /* Pods */,
+				A70EA1B80997EDF8A6DC1A1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				285F46AD211850DE006A3169 /* Model */,
-				287DAA54211994DF005AD878 /* Service */,
+				287DAA54211994DF005AD878 /* Services */,
 				285F46AE211850EA006A3169 /* View */,
 				285F46AF211850FC006A3169 /* Controllers */,
 				285F46B02118514A006A3169 /* Storyboards */,
@@ -113,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				285F46B221186635006A3169 /* City.swift */,
+				40E5D714212AA0E900DE8770 /* Cities.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,12 +165,31 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
-		287DAA54211994DF005AD878 /* Service */ = {
+		287DAA54211994DF005AD878 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				287DAA5221198D6F005AD878 /* Cities.swift */,
+				287DAA5221198D6F005AD878 /* NetworkManager.swift */,
+				4071B24D2126A8DA00527238 /* ImageManager.swift */,
+				4071B24F2126ADD300527238 /* NetworkState.swift */,
 			);
-			path = Service;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A70EA1B80997EDF8A6DC1A1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E6A21CDD6CF45205DB321E4 /* Pods_CityMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D878D2BF95F9F4A6A1B855A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4CFC0C2C92D9C41052BB505 /* Pods-CityMap.debug.xcconfig */,
+				C7652596B3EEE69916BF29FC /* Pods-CityMap.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 285F46A521184E1D006A3169 /* Build configuration list for PBXNativeTarget "CityMap" */;
 			buildPhases = (
+				5D785634FA5D61450BB15D15 /* [CP] Check Pods Manifest.lock */,
 				285F468121184E07006A3169 /* Sources */,
 				285F468221184E07006A3169 /* Frameworks */,
 				285F468321184E07006A3169 /* Resources */,
+				772A9632ACEC76E80B9BE5BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +290,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5D785634FA5D61450BB15D15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CityMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		772A9632ACEC76E80B9BE5BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CityMap/Pods-CityMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CityMap/Pods-CityMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		285F468121184E07006A3169 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -263,9 +339,12 @@
 				285F469121184E08006A3169 /* CityMap.xcdatamodeld in Sources */,
 				285F46B721186CBC006A3169 /* CitiesVC.swift in Sources */,
 				285F46B321186635006A3169 /* City.swift in Sources */,
+				4071B24E2126A8DA00527238 /* ImageManager.swift in Sources */,
 				285F46BB2118739F006A3169 /* DescriptionVC.swift in Sources */,
+				40E5D715212AA0E900DE8770 /* Cities.swift in Sources */,
 				285F46AC211850D9006A3169 /* CityCell.swift in Sources */,
-				287DAA5321198D6F005AD878 /* Cities.swift in Sources */,
+				4071B2502126ADD300527238 /* NetworkState.swift in Sources */,
+				287DAA5321198D6F005AD878 /* NetworkManager.swift in Sources */,
 				285F468921184E07006A3169 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +503,7 @@
 		};
 		285F46A621184E1D006A3169 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4CFC0C2C92D9C41052BB505 /* Pods-CityMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,6 +522,7 @@
 		};
 		285F46A721184E1D006A3169 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7652596B3EEE69916BF29FC /* Pods-CityMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

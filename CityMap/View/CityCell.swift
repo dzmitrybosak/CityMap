@@ -8,10 +8,18 @@
 
 import UIKit
 
-class CityCell: UITableViewCell {
+class CityCell: UICollectionViewCell {
 
     // MARK: - Properties
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    // Clean values of properties when the cell is reused.
+    
+    override func prepareForReuse() {
+        nameLabel.text = nil
+        imageView.image = UIImage(named: "imgholdr-vertical")
+        super.prepareForReuse()
+    }
 }

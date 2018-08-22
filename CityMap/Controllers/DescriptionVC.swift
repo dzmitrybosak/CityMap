@@ -12,14 +12,23 @@ class DescriptionVC: UIViewController {
 
     // MARK: - Properties
     
-    var city = City()
+    var imageManager = ImageManager()
+    
+    var cityTitle: String = ""
+    var cityDescription: String = ""
+    var cityImageURL: String = ""
+    
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = city.name
-        descriptionTextView.text = city.description
+        navigationItem.title = cityTitle
+        descriptionTextView.text = cityDescription
+        
+        // Download image and save it in cache.
+        imageManager.imageDownloader(urlString: cityImageURL, imageView: imageView)
     }
-
 }

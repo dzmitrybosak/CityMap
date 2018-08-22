@@ -8,29 +8,31 @@
 
 import Foundation
 
-final class City {
+struct City: Decodable {
+    var id: Int
+    var title: String
+    var description: String
+    var latitude: Double
+    var longitude: Double
+    var url: String
     
-    // MARK: - Properties
-    
-    let name: String
-    let description: String
-    
-    // MARK: - Initialization
-    
-    init(name: String, description: String) {
-        self.name = name
-        self.description = description
+    enum CodingKeys: CodingKey {
+        case id
+        case title
+        case description
+        case latitude
+        case longitude
+        case url
     }
     
-    convenience init(description: String) {
-        self.init(name: "", description: description)
-    }
-    
-    convenience init(name: String) {
-        self.init(name: name, description: "")
-    }
-    
-    convenience init() {
-        self.init(name: "")
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.latitude = try container.decode(Double.self, forKey: .latitude)
+        self.longitude = try container.decode(Double.self, forKey: .longitude)
+        self.url = try container.decode(String.self, forKey: .url)
     }
 }
