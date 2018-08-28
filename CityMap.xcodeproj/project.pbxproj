@@ -25,6 +25,7 @@
 		40B779F0213019CE00C12BF2 /* CitiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B779EF213019CE00C12BF2 /* CitiesService.swift */; };
 		40BE13E4212ED26B006610F0 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE13E3212ED26B006610F0 /* CoreDataStack.swift */; };
 		40E5D715212AA0E900DE8770 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E5D714212AA0E900DE8770 /* Cities.swift */; };
+		40FE981621352ECE00171EA7 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FE981521352ECE00171EA7 /* MapVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		40B779EF213019CE00C12BF2 /* CitiesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesService.swift; sourceTree = "<group>"; };
 		40BE13E3212ED26B006610F0 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		40E5D714212AA0E900DE8770 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		40FE981521352ECE00171EA7 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		9E6A21CDD6CF45205DB321E4 /* Pods_CityMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CityMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7652596B3EEE69916BF29FC /* Pods-CityMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-CityMap/Pods-CityMap.release.xcconfig"; sourceTree = "<group>"; };
 		F4CFC0C2C92D9C41052BB505 /* Pods-CityMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CityMap/Pods-CityMap.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				285F46B621186CBC006A3169 /* CitiesVC.swift */,
 				285F46BA2118739F006A3169 /* DescriptionVC.swift */,
+				40FE981521352ECE00171EA7 /* MapVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				40005643212D870C008E2183 /* CoreDataManager.swift in Sources */,
 				287DAA5321198D6F005AD878 /* NetworkManager.swift in Sources */,
 				40490D7E212D92CD00F09056 /* CityData+CoreDataClass.swift in Sources */,
+				40FE981621352ECE00171EA7 /* MapVC.swift in Sources */,
 				285F468921184E07006A3169 /* AppDelegate.swift in Sources */,
 				40B779F0213019CE00C12BF2 /* CitiesService.swift in Sources */,
 			);

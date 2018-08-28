@@ -10,11 +10,21 @@ import UIKit
 
 // MARK: - Constants
 
+private enum ConstantsCollectionViewLayout {
+    static let cellsInRow: CGFloat = 3
+    static let cellAspectRatio: CGFloat = 16 / 12
+    static let cellSpacing: CGFloat = 4
+}
+
 private enum Constants {
     static let navTitle = "Cities"
     static let cellID = "cityCell"
-    static let imageHolder = "imgholdr-vertical"
     static let unwindSegueID = "unwindtoCitiesVC"
+}
+
+private enum Segues: String {
+    case showDescription = "showDescription"
+    case showMap = "showMap"
 }
 
 class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -69,40 +79,47 @@ class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     // Configure the size of items.
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width/3) - 5
-        let height: CGFloat = 160.0
-        return CGSize(width: width, height: height)
+        
+        let cellWidth = collectionView.bounds.size.width / ConstantsCollectionViewLayout.cellsInRow - ConstantsCollectionViewLayout.cellSpacing
+        let cellHeight = cellWidth * ConstantsCollectionViewLayout.cellAspectRatio
+        
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     // Configure the spacing between items.
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(4,2,4,2)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return ConstantsCollectionViewLayout.cellSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return ConstantsCollectionViewLayout.cellSpacing
     }
     
     // MARK: - Navigation
     
-    // Show city on Description View Controller.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let destination = segue.destination as? DescriptionVC {
-            
-            let cell = sender as! CityCell
-            let indexPath = collectionView?.indexPath(for: cell)
-            let selectedCity = cities[(indexPath?.row)!]
-            
-            if indexPath != nil {
-                // City displayed on another screen.
-                destination.city = selectedCity
+        guard let segueIdentifier = segue.identifier else { return }
+        
+        switch segueIdentifier {
+        
+        case Segues.showDescription.rawValue:
+            guard let cityCell = sender as? CityCell, let descriptionController = segue.destination as? DescriptionVC else {
+                return
             }
+            // Show city on Description View Controller.
+            descriptionController.city = cityCell.city
+        
+        case Segues.showMap.rawValue:
+            guard let mapController = segue.destination as? MapVC else {
+                return
+            }
+            // Show cities on Map View Controller.
+            mapController.cities = cities
+        
+        default:
+            break
         }
     }
     
