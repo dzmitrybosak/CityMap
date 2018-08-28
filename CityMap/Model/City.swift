@@ -9,12 +9,17 @@
 import Foundation
 
 struct City: Decodable {
+    
+    // MARK: - Properties
+    
     var id: Int
     var title: String
     var description: String
     var latitude: Double
     var longitude: Double
-    var url: String
+    var url: URL
+    
+    // MARK: - Coding Keys
     
     enum CodingKeys: CodingKey {
         case id
@@ -25,6 +30,8 @@ struct City: Decodable {
         case url
     }
     
+    // MARK: - Initialization
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -33,6 +40,6 @@ struct City: Decodable {
         self.description = try container.decode(String.self, forKey: .description)
         self.latitude = try container.decode(Double.self, forKey: .latitude)
         self.longitude = try container.decode(Double.self, forKey: .longitude)
-        self.url = try container.decode(String.self, forKey: .url)
+        self.url = try container.decode(URL.self, forKey: .url)
     }
 }

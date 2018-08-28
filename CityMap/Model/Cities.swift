@@ -9,8 +9,14 @@
 import Foundation
 
 struct Cities: Decodable {
+    
+    // MARK: - Coding Key
+    
     enum CodingKeys: String, CodingKey {
         case cities = "photos"
     }
-    let cities: [City]
+    
+    // MARK: - Property
+    
+    var cities: [City]
 }

@@ -8,84 +8,58 @@
 
 import UIKit
 
+// MARK: - Constants
+
+private enum Constants {
+    static let navTitle = "Cities"
+    static let cellID = "cityCell"
+    static let imageHolder = "imgholdr-vertical"
+    static let unwindSegueID = "unwindtoCitiesVC"
+}
+
 class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     // MARK: - Properties
 
-    var networkManager = NetworkManager()
-    var imageManager = ImageManager()
+    private let citiesService = CitiesService.shared
+    
+    private var cities: [City] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView?.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Cities"
+        navigationItem.title = Constants.navTitle
         
-        checkInternetConnection()
+        setupData()
     }
     
-    // Create alert window if internet is not available. Load data if internet is connected.
-    
-    func checkInternetConnection() {
-        
-        // If internet is connected, load data.
-        
-        if NetworkState.isConnected() {
-            print("Internet is available.")
-            downloadDataFromInternet()
-        } else {
-            print("Internet is not available.")
-            
-            // If internet is not connected, create alert window.
-            
-            let alert = UIAlertController(title: "Error", message: "The Internet connection appears to be offline.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let cancelAct = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let tryAct = UIAlertAction(title: "Try again", style: .default) { UIAlertAction in
-                
-                // If internet is connected, load data, else check connetcion again.
-                
-                if NetworkState.isConnected() {
-                    print("Internet is available.")
-                    self.downloadDataFromInternet()
-                } else {
-                    self.checkInternetConnection()
-                }
-            }
-            
-            alert.addAction(cancelAct)
-            alert.addAction(tryAct)
-            
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    // Load data from internet in main queue and reload data in collection view.
-    
-    func downloadDataFromInternet() {
-        networkManager.loadCities() {
-            DispatchQueue.main.async {
-                self.collectionView?.reloadData()
-            }
+    // Setup data for cities inside CitiesVC.
+    private func setupData() {
+        citiesService.cities { [weak self] cities in
+            self?.cities = cities
         }
     }
 
     // MARK: - Collection view data source
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return networkManager.cities.count
+        return cities.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cellIdentifier = "cityCell"
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CityCell else {
-            fatalError("The dequeued cell is not an instance of CityCell")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as? CityCell else {
+            return UICollectionViewCell()
         }
         
-        let city = networkManager.cities[indexPath.row]
-        cell.nameLabel.text = city.title
-        imageManager.imageDownloader(urlString: city.url, imageView: cell.imageView)
+        let city = cities[indexPath.row]
+        cell.city = city
         
         return cell
     }
@@ -123,19 +97,17 @@ class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
             
             let cell = sender as! CityCell
             let indexPath = collectionView?.indexPath(for: cell)
-            let selectedCity = networkManager.cities[(indexPath?.row)!]
+            let selectedCity = cities[(indexPath?.row)!]
             
             if indexPath != nil {
                 // City displayed on another screen.
-                destination.cityTitle = selectedCity.title
-                destination.cityDescription = selectedCity.description
-                destination.cityImageURL = selectedCity.url
+                destination.city = selectedCity
             }
         }
     }
     
     // Back to CitiesVC.
     @IBAction func unwindtoCitiesVC(segue: UIStoryboardSegue) {
-        performSegue(withIdentifier: "unwindtoCitiesVC", sender: self)
+        performSegue(withIdentifier: Constants.unwindSegueID, sender: self)
     }
 }

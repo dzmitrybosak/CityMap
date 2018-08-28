@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import AlamofireImage
+
+// MARK: - Constants
+
+private enum Constants {
+    static let imageHolder = "imgholdr-vertical"
+}
 
 class CityCell: UICollectionViewCell {
 
@@ -15,11 +22,24 @@ class CityCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var city: City? {
+        didSet {
+            update()
+        }
+    }
+    
+    // Update cell's properties.
+    
+    private func update() {
+        nameLabel.text = city?.title
+        imageView.af_setImage(withURL: (city?.url)!, placeholderImage: UIImage(named: Constants.imageHolder))
+    }
+    
     // Clean values of properties when the cell is reused.
     
     override func prepareForReuse() {
         nameLabel.text = nil
-        imageView.image = UIImage(named: "imgholdr-vertical")
-        super.prepareForReuse()
+        imageView.af_cancelImageRequest()
+        //super.prepareForReuse() - оставлять или нет?
     }
 }

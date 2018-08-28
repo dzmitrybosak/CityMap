@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import AlamofireImage
+
+// MARK: - Constants
+
+private enum Constants {
+    static let imageHolder = "imgholdr-horizontal"
+}
 
 class DescriptionVC: UIViewController {
 
     // MARK: - Properties
     
-    var imageManager = ImageManager()
-    
-    var cityTitle: String = ""
-    var cityDescription: String = ""
-    var cityImageURL: String = ""
+    var city: City?
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
@@ -25,10 +28,28 @@ class DescriptionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = cityTitle
-        descriptionTextView.text = cityDescription
+        setupData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        // Download image and save it in cache.
-        imageManager.imageDownloader(urlString: cityImageURL, imageView: imageView)
+        // Automatic scroll text in text view to top.
+        DispatchQueue.main.async {
+            self.descriptionTextView.scrollRangeToVisible(NSRange(location: 0, length: 0))
+        }
+    }
+    
+    // Setup data for city property
+    
+    private func setupData() {
+        guard let city = city else {
+            return
+        }
+        
+        self.navigationItem.title = city.title
+        self.descriptionTextView.text = city.description
+        
+        imageView.af_setImage(withURL: city.url, placeholderImage: UIImage(named: Constants.imageHolder))
     }
 }
