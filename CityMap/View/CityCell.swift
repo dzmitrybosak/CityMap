@@ -40,6 +40,5 @@ class CityCell: UICollectionViewCell {
     override func prepareForReuse() {
         nameLabel.text = nil
         imageView.af_cancelImageRequest()
-        //super.prepareForReuse() - оставлять или нет?
     }
 }
