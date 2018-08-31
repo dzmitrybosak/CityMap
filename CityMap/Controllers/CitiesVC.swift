@@ -27,7 +27,7 @@ private enum Segues: String {
     case showMap = "showMap"
 }
 
-class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
 
     // MARK: - Properties
 
@@ -43,6 +43,8 @@ class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.delegate = self
         
         navigationItem.title = Constants.navTitle
         
@@ -96,6 +98,17 @@ class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         return ConstantsCollectionViewLayout.cellSpacing
     }
     
+    // MARK: - Navigation Controller Delegate
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if operation == .push {
+            return FadeAnimationController(presenting: true)
+        } else {
+            return FadeAnimationController(presenting: false)
+        }
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,14 +116,15 @@ class CitiesVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         guard let segueIdentifier = segue.identifier else { return }
         
         switch segueIdentifier {
-        
+            
         case Segues.showDescription.rawValue:
-            guard let cityCell = sender as? CityCell, let descriptionController = segue.destination as? DescriptionVC else {
+            guard let cityCell = sender as? CityCell, let pagesController = segue.destination as? PagesVC else {
                 return
             }
-            // Show city on Description View Controller.
-            descriptionController.city = cityCell.city
-        
+            // Show city on Pages View Controller.
+            pagesController.cities = cities
+            pagesController.currentIndex = cityCell.city?.id
+    
         case Segues.showMap.rawValue:
             guard let mapController = segue.destination as? MapVC else {
                 return

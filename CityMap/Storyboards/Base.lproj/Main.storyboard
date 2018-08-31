@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--PagesVC-->
+        <scene sceneID="Rv4-dN-quq">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="WlI-qL-fR9" customClass="PagesVC" customModule="CityMap" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EfQ-SH-RkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2753" y="-596"/>
+        </scene>
         <!--Cities-->
         <scene sceneID="rze-Sj-D0d">
             <objects>
@@ -60,7 +68,7 @@
                                 <connections>
                                     <outlet property="imageView" destination="39B-H1-0cg" id="LL0-Di-pEh"/>
                                     <outlet property="nameLabel" destination="7mw-k1-59g" id="uvA-WP-Qrx"/>
-                                    <segue destination="99i-5o-y7g" kind="show" identifier="showDescription" id="sfe-4j-h8o"/>
+                                    <segue destination="WlI-qL-fR9" kind="show" identifier="showDescription" id="IHr-er-8BM"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -113,16 +121,16 @@
         <!--Minsk-->
         <scene sceneID="vkB-Wt-D2c">
             <objects>
-                <viewController id="99i-5o-y7g" customClass="DescriptionVC" customModule="CityMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DescriptionViewController" id="99i-5o-y7g" customClass="DescriptionVC" customModule="CityMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DrK-sX-pY6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-9o-mKF">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7T0-Rh-sA2">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgholdr-horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="Fo0-pn-zfD">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
@@ -131,7 +139,7 @@
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Belarus" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aym-qc-WTt">
-                                                <rect key="frame" x="0.0" y="250" width="375" height="301"/>
+                                                <rect key="frame" x="0.0" y="250" width="375" height="397"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" red="0.30853193998336792" green="0.36023581027984619" blue="0.39536583423614502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
