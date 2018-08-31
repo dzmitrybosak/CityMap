@@ -32,7 +32,9 @@ class CityCell: UICollectionViewCell {
     
     private func update() {
         nameLabel.text = city?.title
-        imageView.af_setImage(withURL: (city?.url)!, placeholderImage: UIImage(named: Constants.imageHolder))
+        if city?.url != nil {
+            imageView.af_setImage(withURL: (city?.url)!, placeholderImage: UIImage(named: Constants.imageHolder))
+        }
     }
     
     // Clean values of properties when the cell is reused.
